@@ -1,3 +1,4 @@
+
 #---------------------------------------
 #	Import Libraries
 #---------------------------------------
@@ -82,13 +83,16 @@ def Execute(data):
     #Parent.SendTwitchMessage(data.RawData)
     if "PRIVMSG" in data.RawData:
         splitted = data.RawData.split("PRIVMSG")
-        if "bits" in splitted[0]:
+        if "bits=" in splitted[0]:
             splitted2 = splitted[0].split(";")
             for i in splitted2:
-                if "bits" in i:
+                if "bits=" in i:
                     value = i.replace("bits=","")
-                    points = int(float(value)*float(MySettings.bitratio/100))
+                    rat = float(float(MySettings.bitratio)/100)
+                    points = int(int(value)*rat)
+
                     success = Parent.AddPoints(data.User,points)
+                    #Parent.SendTwitchMessage("{} points, {} user, value: {}, ratio: {}, {} points added, {}".format(points,data.User,value,rat,success,data.RawData))
                     #Parent.SendTwitchMessage("Success?: {} {}".format(success,points))
                     
 
