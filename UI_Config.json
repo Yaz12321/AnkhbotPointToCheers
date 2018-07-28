@@ -1,0 +1,17 @@
+﻿{
+  "output_file": "settings.json",
+    "bitratio": {
+    "type": "numberbox",
+    "value": 10,
+    "label": "Points for 100 bits",
+    "tooltip": "",
+    "group": "General"
+  },
+    "donationratio": {
+    "type": "numberbox",
+    "value": 10,
+    "label": "Points for $1",
+    "tooltip": "",
+    "group": "General"
+  },
+}
